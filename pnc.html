@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trải nghiệm tại gia, như tại Mall – Chính Nhân x Phương Nam</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            color: #1f2937;
+        }
+        /* Tùy chỉnh cho phần banner */
+        .header-bg {
+            background-image: url('https://admin.chinhnhan.com/ckfinder/userfiles/images/PNC/es-1.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        /* Hiệu ứng bóng chữ cho tiêu đề */
+        .text-shadow-light {
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+        }
+        /* Hiệu ứng hover nổi bật cho các card game */
+        .game-card-hover:hover {
+            box-shadow: 0 0 15px rgba(37, 99, 235, 0.5), 0 0 25px rgba(37, 99, 235, 0.3);
+            transform: scale(1.03);
+        }
+        /* Hiệu ứng cho phần quà tặng */
+        .gift-item {
+            transition: all 0.3s ease-in-out;
+            height: 100%; /* Đảm bảo các item quà tặng có cùng chiều cao */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .gift-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Phần đầu trang (Header) -->
+    <header class="header-bg relative h-[70vh] flex items-center justify-center text-white p-4">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <div class="relative text-center max-w-4xl mx-auto">
+            <div class="flex items-center justify-center mb-6 space-x-6">
+                <!-- Hình ảnh logo đã được gộp lại -->
+                <img src="https://admin.chinhnhan.com/ckfinder/userfiles/images/PNC/Thi%E1%BA%BFt%20k%E1%BA%BF%20ch%C6%B0a%20c%C3%B3%20t%C3%AAn%20(3).png" alt="Logo Chính Nhân và Phương Nam" class="h-14 md:h-20 rounded-md shadow-lg border-4 border-white">
+            </div>
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-4 text-shadow-light">
+               KHÔNG GIAN CÔNG NGHỆ
+            </h1>
+            <p class="text-xl md:text-2xl font-medium mb-10 text-gray-100 text-shadow-light">
+                Chính Nhân x Phương Nam
+            </p>
+            <a href="https://forms.gle/gcTropri1QtCx89V6" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-10 rounded-full transition-colors duration-300 shadow-lg transform hover:scale-105">
+                ĐĂNG KÝ THAM GIA
+            </a>
+            <p class="mt-6 text-sm md:text-base font-semibold text-gray-100 text-shadow-light">
+                Liên hệ trực tiếp: Lộc - 0335979789
+            </p>
+        </div>
+    </header>
+
+    <!-- Phần nội dung chính -->
+    <main class="container mx-auto px-4 py-12 md:py-20">
+        
+        <!-- Slideshow hình ảnh -->
+        <section class="text-center mb-16 md:mb-24">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6 text-blue-600">
+                KHÔNG GIAN LÀM VIỆC
+            </h2>
+             <h2 class="text-3xl md:text-5xl font-bold mb-6 text-blue-600">
+              ESTELLA MALL
+            </h2>
+            <div class="relative w-full max-w-4xl mx-auto rounded-xl shadow-lg border border-gray-200 overflow-hidden" style="aspect-ratio: 4/3;">
+                <div id="slideshow" class="flex transition-transform duration-500 ease-in-out h-full">
+                    <img src="https://admin.chinhnhan.com/ckfinder/userfiles/images/PNC/z6865636804128_0b74e0d02217b6059524383c526af1eb.jpg" alt="Hình ảnh góc làm việc chuyên nghiệp 1" class="w-full h-full object-cover flex-shrink-0">
+                    <img src="https://admin.chinhnhan.com/ckfinder/userfiles/images/PNC/z6865636803298_5649199a7d0de7e64ce345867dc930b0.jpg" alt="Hình ảnh góc làm việc chuyên nghiệp 2" class="w-full h-full object-cover flex-shrink-0">
+                    <img src="https://admin.chinhnhan.com/ckfinder/userfiles/images/PNC/z6865639167509_6b31cdf38f90df4d292cb23ddf9587f6.jpg" alt="Hình ảnh góc làm việc chuyên nghiệp 3" class="w-full h-full object-cover flex-shrink-0">
+                </div>
+                <!-- Nút "Lùi" -->
+                <button id="prev-btn" class="absolute top-1/2 left-4 -translate-y-1/2 bg-gray-800 bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition-opacity duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+                <!-- Nút "Tới" -->
+                <button id="next-btn" class="absolute top-1/2 right-4 -translate-y-1/2 bg-gray-800 bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition-opacity duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+            </div>
+        </section>
+
+        <!-- Phần Mini Game & Ưu đãi -->
+        <section class="bg-white rounded-xl shadow-lg p-6 md:p-12 mb-16 md:mb-24 border border-gray-200">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-10 text-green-600">
+                Mini Game & Ưu đãi hấp dẫn
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8 items-stretch">
+                <!-- Mini Game 1: Flappy Bird -->
+                <div class="text-center bg-gray-100 rounded-lg p-6 border-2 border-green-400 transition-all duration-300 game-card-hover flex flex-col justify-between">
+                    <img src="https://admin.chinhnhan.com/ckfinder/userfiles/images/PNC/flappy-bird.jpg" alt="Ảnh game Flappy Bird" class="rounded-lg w-full mb-4 object-cover h-60">
+                    <div>
+                        <h3 class="text-xl md:text-2xl font-bold text-gray-800 mb-2">Mini Game: Flappy Bird</h3>
+                        <p class="text-gray-600">Thử thách sự khéo léo để đạt điểm cao và nhận những phần quà giá trị.</p>
+                    </div>
+                </div>
+                <!-- Mini Game 2: Full Setup -->
+                <div class="text-center bg-gray-100 rounded-lg p-6 border-2 border-green-400 transition-all duration-300 game-card-hover flex flex-col justify-between">
+                    <img src="https://admin.chinhnhan.com/ckfinder/userfiles/images/PNC/es-4.jpg" alt="Ảnh góc setup" class="rounded-lg w-full mb-4 object-cover h-60">
+                    <div>
+                        <h3 class="text-xl md:text-2xl font-bold text-gray-800 mb-2">Mini Game: Trải nghiệm Full Góc Setup</h3>
+                        <p class="text-gray-600">Trực tiếp khám phá và xây dựng góc làm việc mơ ước của riêng bạn.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Phần quà tặng -->
+            <div class="mt-12 text-center">
+                <h3 class="text-2xl md:text-3xl font-bold text-yellow-500 mb-6">
+                    Quà tặng độc đáo đang chờ đón bạn!
+                </h3>
+                <div class="grid md:grid-cols-3 gap-6 items-stretch">
+                    <!-- Quà tặng 1: Phím chuột Logitech -->
+                    <div class="bg-gray-100 rounded-xl p-4 shadow-lg gift-item">
+                        <div>
+                            <img src="https://admin.chinhnhan.com/ckfinder/userfiles/images/PNC/logitech%20b175.png" alt="Bộ phím chuột không dây Logitech B175" class="w-full h-auto mx-auto mb-4 rounded-lg">
+                            <p class="text-lg font-semibold text-gray-700">Chuột Logitech không dây B175</p>
+                        </div>
+                    </div>
+                    <!-- Quà tặng 2: Bút bi gỗ -->
+                    <div class="bg-gray-100 rounded-xl p-4 shadow-lg gift-item">
+                        <div>
+                            <img src="https://admin.chinhnhan.com/ckfinder/userfiles/images/PNC/b%C3%BAt%20g%E1%BB%97.png" alt="Bút bi gỗ cao cấp" class="w-full h-auto mx-auto mb-4 rounded-lg">
+                            <p class="text-lg font-semibold text-gray-700">Bút bi gỗ cao cấp</p>
+                        </div>
+                    </div>
+                    <!-- Quà tặng 3: Quà tặng khác -->
+                    <div class="bg-gray-100 rounded-xl p-4 shadow-lg gift-item">
+                        <div>
+                            <img src="https://admin.chinhnhan.com/ckfinder/userfiles/images/PNC/qu%E1%BA%A1t.png" alt="Quà tặng hấp dẫn khác" class="w-full h-auto mx-auto mb-4 rounded-lg">
+                            <p class="text-lg font-semibold text-gray-700">Quà tặng hấp dẫn khác</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Khu vực ảnh khách nhận quà -->
+            <div class="mt-12 text-center">
+                <h3 class="text-2xl md:text-3xl font-bold text-blue-600 mb-6">
+                    Hình ảnh khách hàng nhận quà
+                </h3>
+                <div class="grid md:grid-cols-2 gap-6 items-stretch">
+                    <!-- Hình 1 -->
+                    <div class="bg-gray-100 rounded-xl p-4 shadow-lg flex-1">
+                        <img src="https://admin.chinhnhan.com/ckfinder/userfiles/images/PNC/es-3.jpg" alt="Khách hàng nhận quà 1" class="w-full h-full object-cover rounded-lg" style="aspect-ratio: 9/16;">
+                    </div>
+                    <!-- Hình 2 -->
+                    <div class="bg-gray-100 rounded-xl p-4 shadow-lg flex-1">
+                        <img src="https://admin.chinhnhan.com/ckfinder/userfiles/images/PNC/es-2.jpg" alt="Khách hàng nhận quà 2" class="w-full h-full object-cover rounded-lg" style="aspect-ratio: 9/16;">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kêu gọi theo dõi TikTok -->
+            <div class="mt-12 text-center bg-gray-100 rounded-lg p-6 border-2 border-gray-200">
+                <p class="text-xl font-semibold mb-4 text-blue-600">
+                    Đừng bỏ lỡ những cập nhật mới nhất!
+                </p>
+                <p class="text-lg mb-4 text-gray-700">
+                    Theo dõi ngay kênh TikTok chính thức của Chính Nhân để nhận thêm nhiều ưu đãi đặc biệt!
+                </p>
+                <a href="https://www.tiktok.com/@chinhnhan_tiktok?is_from_webapp=1&sender_device=pc" target="_blank" class="inline-block bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-full transition-colors duration-300">
+                    Theo dõi TikTok Chính Nhân
+                </a>
+            </div>
+        </section>
+
+        <!-- Phần Liên hệ và Thông tin -->
+        <section id="contact" class="bg-blue-600 text-white rounded-xl shadow-lg p-6 md:p-12 text-center border-2 border-blue-700">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-yellow-300">
+                Liên hệ và tư vấn
+            </h2>
+            <p class="text-lg md:text-xl font-medium mb-8 text-blue-100">
+                Bạn quan tâm đến sản phẩm? Hãy liên hệ ngay với chúng tôi!
+            </p>
+            
+            <div class="flex flex-col md:flex-row items-stretch justify-center space-y-6 md:space-y-0 md:space-x-8">
+                 <!-- Mã QR & Hotline -->
+                <div class="text-center bg-blue-800 p-6 rounded-lg flex-1">
+                    <img src="https://admin.chinhnhan.com/ckfinder/userfiles/images/PNC/CC.png" alt="QR Code Zalo" class="w-36 h-36 mx-auto mb-4 rounded-lg shadow-md">
+                    <p class="text-lg font-semibold text-gray-100">Quét mã QR để đăng ký tham gia</p>
+                    <p class="text-lg font-semibold mt-2 text-yellow-300">Hotline: <span class="font-bold">0335979789</span> (Mr. Lộc)</p>
+                </div>
+                
+                <!-- Hình ảnh và Link đến website Chính Nhân -->
+                <div class="text-center bg-blue-800 p-6 rounded-lg flex-1">
+                    <img src="https://admin.chinhnhan.com/ckfinder/userfiles/images/PNC/logitech%20b175(1).png" alt="Ảnh Chính Nhân" class="w-36 h-36 mx-auto mb-4 rounded-lg shadow-md">
+                    <p class="text-lg font-semibold text-gray-100">Tìm hiểu thêm về Chính Nhân</p>
+                    <a href="https://www.chinhnhan.vn/" target="_blank" class="inline-block bg-yellow-400 hover:bg-yellow-500 text-blue-900 font-bold py-3 px-8 rounded-full transition-colors duration-300 mt-2">
+                        Công Nghệ Chính Nhân
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Phần chân trang -->
+    <footer class="bg-gray-900 text-gray-400 text-center p-6 mt-12">
+        <p>&copy; 2025 Chính Nhân x Phương Nam. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slideshow = document.getElementById('slideshow');
+            const nextBtn = document.getElementById('next-btn');
+            const prevBtn = document.getElementById('prev-btn'); // Nút "Lùi"
+            const images = slideshow.children;
+            let currentIndex = 0;
+            const totalImages = images.length;
+
+            nextBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % totalImages;
+                slideshow.style.transform = `translateX(-${currentIndex * 100}%)`;
+            });
+
+            prevBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+                slideshow.style.transform = `translateX(-${currentIndex * 100}%)`;
+            });
+        });
+    </script>
+
+</body>
+</html>
